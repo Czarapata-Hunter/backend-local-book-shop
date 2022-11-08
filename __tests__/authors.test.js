@@ -8,7 +8,7 @@ describe('authors routes', () => {
     return setup(pool);
   });
 
-  it('GET owners should return list of authors', async () => {
+  it('GET authors should return list of authors', async () => {
     const resp = await request(app).get('/authors');
     expect(resp.status).toBe(200);
     expect(resp.body.length).toBe(3);
@@ -16,5 +16,18 @@ describe('authors routes', () => {
       id: expect.any(String),
       name: expect.any(String),
     });
+  });
+
+  it('GET authors/:id should return individual author and their books', async () => {
+    const resp = await request(app).get('/authors/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      pairings: expect.any(Array),
+    });
+  });
+  afterAll(() => {
+    pool.end();
   });
 });
