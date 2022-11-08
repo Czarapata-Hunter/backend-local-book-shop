@@ -69,12 +69,12 @@ VALUES
     (1,5, 'Order of the Phoenix'),
     (1,6, 'Half-Blood Prince'),
     (1,7, 'Deathly Hallows'),
-    (2,1, 'The Fellowship of the Ring'),
-    (2,2, 'The Two Towers'),
-    (2,3, 'The Return of the King'),
-    (3,1, 'Eragon'),
-    (3,2, 'Eldest'),
-    (3,3, 'Brisingr'),
-    (3,4, 'Inheritance')
+    (2,8, 'The Fellowship of the Ring'),
+    (2,9, 'The Two Towers'),
+    (2,10, 'The Return of the King'),
+    (3,11, 'Eragon'),
+    (3,12, 'Eldest'),
+    (3,13, 'Brisingr'),
+    (3,14, 'Inheritance')
     ;
     
