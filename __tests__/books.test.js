@@ -12,21 +12,26 @@ describe('books routes', () => {
     const resp = await request(app).get('/books');
     expect(resp.status).toBe(200);
     expect(resp.body.length).toBe(14);
-    expect(resp.body[0]).toEqual({
-      id: expect.any(String),
-      title: expect.any(String),
-      released: expect.any(String),
-    });
+    const stone = resp.body.find((book) => book.id === '1');
+    expect(stone).toHaveProperty('title', 'Philosophers Stone');
+    expect(stone).toHaveProperty('released', '1997');
   });
 
   it('GET books/:id should return individual books with correct author', async () => {
     const resp = await request(app).get('/books/1');
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual({
-      id: expect.any(String),
-      title: expect.any(String),
-      released: expect.any(String),
-      pairings: expect.any(Array),
+      id: '1',
+      pairings: [
+        {
+          author_id: 1,
+          book_id: 1,
+          detail: 'The Sorcerers Stone',
+          id: 1,
+        },
+      ],
+      released: '1997',
+      title: 'Philosophers Stone',
     });
   });
 
